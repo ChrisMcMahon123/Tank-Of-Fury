@@ -1,4 +1,4 @@
-# First Game
+﻿# First Game
 
 ## A side-scrolling 2.5D platformer video game
 
@@ -28,7 +28,7 @@
 
 - Joefa
 
-- Chris
+- Chris McMahon
 
 ### Select 5 of Schell’s Lenses. Answer the questions with respect to your design. Each answer should be about 1-2 paragraphs. 
 
@@ -40,7 +40,7 @@
 
 - Joefa
 
-- Chris
+- Chris McMahon
 
 ### Use Dorman’s Machinations to simulate and balance the main mechanic in your game. The simulation should use at least 6 elements from the framework. For an outstanding answer, include an Artificial Player to demonstrate one or more strategies. Also, generate relevant graphs to illustrate the behaviour/balance characteristics of the mechanic. 
 
@@ -52,7 +52,7 @@
 
 - Joefa
 
-- Chris
+- Chris McMahon
 
 ### Prepare a 5-10 minute game pitch. Imagine you are presenting your game concept to a publisher or management. You want to sell your idea.
 
@@ -63,4 +63,4 @@
 
 - Joefa
 
-- Chris
+- Chris McMahon
