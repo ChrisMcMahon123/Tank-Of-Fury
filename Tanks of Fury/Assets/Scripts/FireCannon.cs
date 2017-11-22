@@ -8,11 +8,9 @@ public class FireCannon : MonoBehaviour {
 	public Slider powerSlider;
 
 	private float coolDownTimer;
-	private float coolDownPeriod;
 	private bool overheat;
 
 	void Start() {
-		coolDownPeriod = 1.0f;
 		coolDownTimer = 0;
 		cannonFire.Stop ();
 	}
@@ -21,12 +19,13 @@ public class FireCannon : MonoBehaviour {
 	void Update () {
 		if (Mathf.Round(coolDownTimer) <= 0) {
 			//prevent the player from spamming the fire button resulting in some funny bullet physics 
-			if (Input.GetKey ("space")) {
+			if (Input.GetKey ("f")) {
 				//gun has been fired, set the cooldown timer and shoot the bullet
-				coolDownTimer = coolDownPeriod;
+				coolDownTimer = GlobalVariables.coolDownPeriod;
 				cannonFire.Play ();
-				fireBullet (cannonFire.transform.position, transform.up * powerSlider.value * 1000 * Time.deltaTime);
-			} else {
+				fireBullet (cannonFire.transform.position, transform.up * powerSlider.value * GlobalVariables.cannonMultiplier * Time.deltaTime);
+			} 
+			else {
 				cannonFire.Stop ();
 			}
 		}

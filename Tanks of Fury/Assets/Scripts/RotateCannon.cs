@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class RotateCannon : MonoBehaviour {
 	void Update () {
-		if (Input.GetKey("z"))
-		{
+		if (Input.GetKey("z")) {
 			if (transform.localEulerAngles.y > 140) {
 				//rotate the cannon up
 				transform.Rotate (Vector3.left * 2 * GlobalVariables.moveSpeed * Time.deltaTime);

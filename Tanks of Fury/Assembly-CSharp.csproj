@@ -54,6 +54,7 @@
      <Compile Include="Assets\Scripts\BulletExplosion.cs" />
      <Compile Include="Assets\Scripts\Destructable.cs" />
      <Compile Include="Assets\Scripts\FireCannon.cs" />
+     <Compile Include="Assets\Scripts\FollowPlayer.cs" />
      <Compile Include="Assets\Scripts\GenerateFloor.cs" />
      <Compile Include="Assets\Scripts\GlobalVariables.cs" />
      <Compile Include="Assets\Scripts\GrowAOE.cs" />

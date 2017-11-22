@@ -3,22 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GrowAOE : MonoBehaviour {
-	float aoeSpeed;
+	float aoeLocal;
 
 	void Start () {
-		aoeSpeed = 1;
+		aoeLocal = GlobalVariables.aoeSpeed;
 	}
 
 	void Update () {
-		aoeSpeed+= 0.1f;
+		aoeLocal += 0.1f;
 
-		if(transform.localScale.x < 10)
-	 	{
+		if(transform.localScale.x < 10) {
 			//grow the AOE until it hits a specific size and then destroy it
-			transform.localScale = new Vector3(1,1,1) * aoeSpeed;
+			transform.localScale = new Vector3(1,1,1) * aoeLocal;
 		}	
-		else 
-		{
+		else {
 			Destroy(gameObject);
 		}
 	}
