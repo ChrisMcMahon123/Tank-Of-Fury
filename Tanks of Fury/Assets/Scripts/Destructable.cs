@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Destructable : MonoBehaviour {
-	void OnCollisionEnter(Collision collision) {
-		//destroy the bullet at any point where it collides with anything
-		//also generating an AOE effect that will grow
-		Debug.Log ("Collision Destroy");
-		Destroy (gameObject);
+	//for destructable objects using this script they need a RigidBody
+	void OnTriggerEnter(Collider collider)
+	{
+		if (collider.tag == "AOEDamage") {
+			Debug.Log ("Trigger Destroy");
+			Destroy (gameObject);
+		}
 	}
 }
