@@ -51,8 +51,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\BulletExplosion.cs" />
+     <Compile Include="Assets\Scripts\Destructable.cs" />
      <Compile Include="Assets\Scripts\FireCannon.cs" />
      <Compile Include="Assets\Scripts\GenerateFloor.cs" />
+     <Compile Include="Assets\Scripts\GlobalVariables.cs" />
+     <Compile Include="Assets\Scripts\GrowAOE.cs" />
      <Compile Include="Assets\Scripts\MoveCamera.cs" />
      <Compile Include="Assets\Scripts\MovePlayer.cs" />
      <Compile Include="Assets\Scripts\RotateCannon.cs" />

@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+//do stuff lol
 public class GenerateFloor : MonoBehaviour {
 
 	// Use this for initialization
