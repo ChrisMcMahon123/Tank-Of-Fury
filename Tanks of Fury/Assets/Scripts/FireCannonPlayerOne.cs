@@ -3,37 +3,38 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class FireCannon : MonoBehaviour {
-	public ParticleSystem cannonFire;//animation for cannon fire
-	public Slider powerSlider;
+public class FireCannonPlayerOne : MonoBehaviour {
+	public ParticleSystem cannonFireAnimation;
+	public Slider cannonPowerSlider;
 
 	private float coolDownTimer;
-	private bool overheat;
 
 	void Start() {
+		cannonFireAnimation.Stop ();
 		coolDownTimer = 0;
-		cannonFire.Stop ();
 	}
 
-	// Update is called once per frame
 	void Update () {
 		if (Mathf.Round(coolDownTimer) <= 0) {
 			//prevent the player from spamming the fire button resulting in some funny bullet physics 
 			if (Input.GetKey ("f")) {
-				//gun has been fired, set the cooldown timer and shoot the bullet
-				coolDownTimer = GlobalVariables.coolDownPeriod;
-				cannonFire.Play ();
-				fireBullet (cannonFire.transform.position, transform.up * powerSlider.value * GlobalVariables.cannonMultiplier * Time.deltaTime);
-			} 
+				if (GlobalVariables.CurrentPlayerTurn == 1) {
+					Debug.Log ("Player 1 FIRE");
+					//gun has been fired, set the cooldown timer and shoot the bullet
+					coolDownTimer = GlobalVariables.coolDownPeriod;
+					cannonFireAnimation.Play ();
+					fireBullet (cannonFireAnimation.transform.position, transform.up * cannonPowerSlider.value * GlobalVariables.cannonMultiplier * Time.deltaTime);
+				}
+			}
 			else {
-				cannonFire.Stop ();
+				cannonFireAnimation.Stop ();
 			}
 		}
 		else {
 			//dont show the firing animation if the gun is still cooling down
 			//reduce the cooldown timer
 			coolDownTimer -= Time.deltaTime;
-			cannonFire.Stop ();
+			cannonFireAnimation.Stop ();
 		}
 	}
 
@@ -43,7 +44,6 @@ public class FireCannon : MonoBehaviour {
 		newBullet.transform.position = spawnLocation;
 
 		newBullet.GetComponent<Renderer> ().material = Resources.Load ("Bullet", typeof(Material)) as Material;
-
 		newBullet.AddComponent(System.Type.GetType("BulletExplosion"));
 
 		newBullet.AddComponent<Rigidbody>();

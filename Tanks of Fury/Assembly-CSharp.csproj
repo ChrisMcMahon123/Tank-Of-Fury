@@ -53,16 +53,19 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\BulletExplosion.cs" />
      <Compile Include="Assets\Scripts\Destructable.cs" />
-     <Compile Include="Assets\Scripts\FireCannon.cs" />
+     <Compile Include="Assets\Scripts\FireCannonPlayerOne.cs" />
+     <Compile Include="Assets\Scripts\FireCannonPlayerTwo.cs" />
      <Compile Include="Assets\Scripts\FollowPlayer.cs" />
      <Compile Include="Assets\Scripts\GenerateFloor.cs" />
      <Compile Include="Assets\Scripts\GlobalVariables.cs" />
      <Compile Include="Assets\Scripts\GrowAOE.cs" />
-     <Compile Include="Assets\Scripts\HealthBar.cs" />
+     <Compile Include="Assets\Scripts\HealthBarOne.cs" />
+     <Compile Include="Assets\Scripts\HealthBarTwo.cs" />
      <Compile Include="Assets\Scripts\MoveCamera.cs" />
      <Compile Include="Assets\Scripts\MovePlayer.cs" />
      <Compile Include="Assets\Scripts\RotateCannon.cs" />
      <Compile Include="Assets\Scripts\RotateTurret.cs" />
+     <Compile Include="Assets\Scripts\SwitchTurns.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
