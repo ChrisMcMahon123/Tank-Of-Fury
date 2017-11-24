@@ -17,6 +17,12 @@ public class SwitchTurns : MonoBehaviour {
 
 	void Start() {
 		//player 1 starts the game
+		playerTwoCamera.enabled = false;
+		GlobalVariables.playerTwoTurn = false;
+
+		playerOneCamera.enabled = true;
+		GlobalVariables.playerOneTurn = true;
+
 		GlobalVariables.currentPlayerTank = playerOneTank;
 		GlobalVariables.currentPlayerTurret = playerOneTurret;
 		GlobalVariables.currentPlayerCannon = playerOneCannon;

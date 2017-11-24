@@ -4,19 +4,19 @@
     <Files>
       <File FileName="Assets\Scripts\GenerateFloor.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\MoveCamera.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\RotateTurret.cs" Line="14" Column="99" />
-      <File FileName="Assets\Scripts\BulletExplosion.cs" Line="14" Column="84" />
-      <File FileName="Assets\Scripts\Destructable.cs" Line="7" Column="1" />
-      <File FileName="Assets\Scripts\GrowAOE.cs" Line="9" Column="39" />
-      <File FileName="Assets\Scripts\SwitchTurns.cs" Line="17" Column="1" />
-      <File FileName="Assets\Scripts\MovePlayer.cs" Line="6" Column="24" />
+      <File FileName="Assets\Scripts\RotateTurret.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\BulletExplosion.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Destructable.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\GrowAOE.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\SwitchTurns.cs" Line="15" Column="36" />
+      <File FileName="Assets\Scripts\MovePlayer.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\FollowPlayer.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\GlobalVariables.cs" Line="18" Column="2" />
-      <File FileName="Assets\Scripts\RotateCannon.cs" Line="15" Column="44" />
-      <File FileName="Assets\Scripts\FireCannonPlayerOne.cs" Line="26" Column="1" />
-      <File FileName="Assets\Scripts\FireCannonPlayerTwo.cs" Line="6" Column="33" />
-      <File FileName="Assets\Scripts\HealthBarTwo.cs" Line="37" Column="30" />
-      <File FileName="Assets\Scripts\HealthBarOne.cs" Line="30" Column="2" />
+      <File FileName="Assets\Scripts\GlobalVariables.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\RotateCannon.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\FireCannonPlayerOne.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\FireCannonPlayerTwo.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\HealthBarOne.cs" Line="27" Column="19" />
+      <File FileName="Assets\Scripts\HealthBarTwo.cs" Line="56" Column="2" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

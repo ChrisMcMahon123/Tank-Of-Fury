@@ -26,6 +26,10 @@ public class HealthBarTwo : MonoBehaviour {
 		if (collider.tag == "AOEDamage") {
 			damageTaken ();
 		}
+
+		if (collider.tag == "HealthPack") {
+			recoverHealth ();
+		}
 	}
 
 	public void damageTaken (){
@@ -35,6 +39,18 @@ public class HealthBarTwo : MonoBehaviour {
 
 		if (GlobalVariables.playerTwoCurrentHealth <= 0) {
 			Debug.Log ("Player 2 Died!");
+		}
+	}
+
+	public void recoverHealth(){
+
+		if (GlobalVariables.playerTwoCurrentHealth == GlobalVariables.playerTwoMaxHealth) {
+			Debug.Log ("Player 2 is at max health already!");
+		} 
+		else {
+			Debug.Log ("Player 2 Recovered Health");
+			healthBars [GlobalVariables.playerTwoCurrentHealth].GetComponent<Renderer> ().material = Resources.Load ("Green", typeof(Material)) as Material;
+			GlobalVariables.playerTwoCurrentHealth++;//subtract a health unit from player1
 		}
 	}
 }

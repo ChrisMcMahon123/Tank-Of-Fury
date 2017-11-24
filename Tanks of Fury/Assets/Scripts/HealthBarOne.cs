@@ -26,15 +26,31 @@ public class HealthBarOne : MonoBehaviour {
 		if (collider.tag == "AOEDamage") {
 			damageTaken ();
 		}
+
+		if (collider.tag == "HealthPack") {
+			recoverHealth ();
+		}
 	}
 
 	public void damageTaken (){
 		//Debug.Log ("Damage Taken");
 		GlobalVariables.playerOneCurrentHealth--;//subtract a health unit from player1
-		healthBars [GlobalVariables.playerOneCurrentHealth].GetComponent<Renderer> ().material = Resources.Load ("Explosion", typeof(Material)) as Material;
+		healthBars [GlobalVariables.playerOneCurrentHealth].GetComponent<Renderer> ().material = Resources.Load ("Invisible", typeof(Material)) as Material;
 
 		if (GlobalVariables.playerOneCurrentHealth <= 0) {
 			Debug.Log ("Player One Died!");
 		} 
+	}
+
+	public void recoverHealth(){
+
+		if (GlobalVariables.playerOneCurrentHealth == GlobalVariables.playerOneMaxHealth) {
+			Debug.Log ("Player 1 is at max health already!");
+		} 
+		else {
+			Debug.Log ("Player 1 Recovered Health");
+			healthBars [GlobalVariables.playerOneCurrentHealth].GetComponent<Renderer> ().material = Resources.Load ("Green", typeof(Material)) as Material;
+			GlobalVariables.playerOneCurrentHealth++;//subtract a health unit from player1
+		}
 	}
 }
