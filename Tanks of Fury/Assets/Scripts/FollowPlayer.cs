@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class FollowPlayer : MonoBehaviour {
 	public GameObject playerCube;
-	Vector3 offset;
+
+	private Vector3 offset;
 
 	// Use this for initialization
 	void Start () {

@@ -7,6 +7,9 @@ TagManager:
   - Floor
   - AOEDamage
   - HealthPack
+  - Terrain
+  - FuelPack
+  - AmmoMod
   layers:
   - Default
   - TransparentFX
