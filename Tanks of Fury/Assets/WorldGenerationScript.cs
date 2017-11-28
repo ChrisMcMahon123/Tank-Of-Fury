@@ -72,6 +72,7 @@ public class WorldGenerationScript : MonoBehaviour {
 
 		worldObjectStartPos = new Vector3 (blMarker.transform.position.x - (worldObjectIncAmount/2f), blMarker.transform.position.y,
 			blMarker.transform.position.z + (worldObjectIncAmount/2f));
+		
 		terrainStartPos = new Vector3 (blMarker.transform.position.x - (terrainIncAmount / 2f), blMarker.transform.position.y, 
 			blMarker.transform.position.z + (terrainIncAmount / 2f));
 
@@ -89,7 +90,7 @@ public class WorldGenerationScript : MonoBehaviour {
 
 						spawnHere (currentPosition, newSpawn, terrainRadius, true);
 
-						yield return new WaitForSeconds (0.01f);
+						yield return new WaitForSeconds (0.1f);
 					}
 
 					currentPosition = new Vector3 (terrainStartPos.x, currentPosition.y, currentPosition.z + terrainIncAmount); 
@@ -109,17 +110,17 @@ public class WorldGenerationScript : MonoBehaviour {
 
 							spawnHere (currentPosition, newSpawn, worldObjectSphereRadius, false);
 
-							yield return new WaitForSeconds (0.01f);
+							yield return new WaitForSeconds (0.1f);
 						}
 						else {
 							GameObject newSpawn = trees [Random.Range (0, trees.Length)];
 							spawnHere (currentPosition, newSpawn, worldObjectSphereRadius, false);
 
-							yield return new WaitForSeconds (0.01f);
+							yield return new WaitForSeconds (0.1f);
 						}
 					}
 
-					currentPosition = new Vector3 (worldObjectStartPos.x, worldObjectStartPos.y, worldObjectStartPos.z + worldObjectIncAmount);
+					currentPosition = new Vector3 (worldObjectStartPos.x, currentPosition.y, currentPosition.z + worldObjectIncAmount);
 				}
 			}
 		}
@@ -154,9 +155,10 @@ public class WorldGenerationScript : MonoBehaviour {
 				Collider[] objectsHit = Physics.OverlapSphere (randPos, radiusOfSphere, worldObjectLayer);
 
 				if (objectsHit.Length == 0) {
+					//Puts the terrain object slightly below the ground
 					GameObject worldObject = (GameObject)Instantiate (objectToSpawn, randPos, Quaternion.identity);
 					worldObject.transform.position = new Vector3 (worldObject.transform.position.x, worldObject.transform.position.y +
-						(worldObject.GetComponent<Renderer> ().bounds.extents.y * 0.7f), worldObject.transform.position.z);
+						(worldObject.GetComponent<Renderer> ().bounds.extents.y * 0.6f), worldObject.transform.position.z);
 					worldObject.transform.eulerAngles = new Vector3 (transform.eulerAngles.x, Random.Range (0, 360), transform.eulerAngles.z); 
 				}
 			}
