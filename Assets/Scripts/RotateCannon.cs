@@ -4,18 +4,19 @@ using UnityEngine;
 
 public class RotateCannon : MonoBehaviour {
 	void Update () {
-		if (Input.GetKey("z"))
-		{
-			if (transform.localEulerAngles.y > 140) {
-				//rotate the cannon up
-				transform.Rotate (Vector3.left * 2 * GlobalVariables.moveSpeed * Time.deltaTime);
-			} 
-		}
+		if (GlobalVariables.currentPlayerHasFiredCannon == false) {
+			if (Input.GetKey ("z")) {
+				if (GlobalVariables.currentPlayerCannon.transform.localEulerAngles.y > 140) {
+					//rotate the cannon up
+					GlobalVariables.currentPlayerCannon.transform.Rotate (Vector3.left * GlobalVariables.moveSpeed * Time.deltaTime);
+				} 
+			}
 
-		if (Input.GetKey ("c")) {
-			if (transform.localEulerAngles.y < 180) {
-				//rotate the cannon down
-				transform.Rotate (Vector3.right * 2 * GlobalVariables.moveSpeed * Time.deltaTime);
+			if (Input.GetKey ("c")) {
+				if (GlobalVariables.currentPlayerCannon.transform.localEulerAngles.y < 180) {
+					//rotate the cannon down
+					GlobalVariables.currentPlayerCannon.transform.Rotate (Vector3.right * GlobalVariables.moveSpeed * Time.deltaTime);
+				}
 			}
 		}
 	}

@@ -6,6 +6,12 @@ TagManager:
   tags:
   - Floor
   - AOEDamage
+  - HealthPack
+  - Terrain
+  - FuelPack
+  - AmmoMod
+  - WorldObject
+  - Ground
   layers:
   - Default
   - TransparentFX
@@ -15,9 +21,9 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
+  - Ground
+  - WorldObject
+  - Terrain
   - 
   - 
   - 
