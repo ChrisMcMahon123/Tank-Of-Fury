@@ -192,13 +192,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1264609170}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalRotation: {x: 0.04143175, y: -0, z: -0, w: 0.99914134}
+  m_LocalPosition: {x: 0, y: 6, z: -35.98}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 4.749, y: 0, z: 0}
 --- !u!1 &1394461072
 GameObject:
   m_ObjectHideFlags: 0
@@ -321,6 +321,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef50811c21b7a42ca901d0dd04bec844, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  trees:
+  - {fileID: 1686429382690028, guid: 0fac1f713d7f1489fa2318648c628e42, type: 2}
+  - {fileID: 1381601776155388, guid: abc95e8a0c13e4ef2837bcd640c7e876, type: 2}
+  stones:
+  - {fileID: 1183656200434326, guid: b103669b0321f42ec8850895108ee4c4, type: 2}
+  terrain:
+  - {fileID: 1284454092021508, guid: 2685069aef7b248458678aa6c635a859, type: 2}
+  - {fileID: 1629814912690838, guid: 5264de88c65234c468da38962ccacf79, type: 2}
+  stoneChances: 6
+  blMarker: {fileID: 1794890320}
+  trMarker: {fileID: 1574354502}
+  worldObjectRowsCols: 10
+  terrainRowsCols: 5
+  repeatCycle: 5
+  worldObjectSphereRadius: 1
+  terrainRadius: 5
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 1280
+  terrainLayer:
+    serializedVersion: 2
+    m_Bits: 1024
+  worldObjectLayer:
+    serializedVersion: 2
+    m_Bits: 512
 --- !u!1 &1574354502
 GameObject:
   m_ObjectHideFlags: 0

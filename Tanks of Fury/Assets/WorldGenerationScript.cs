@@ -40,9 +40,8 @@ public class WorldGenerationScript : MonoBehaviour {
 
 	//number of cycles and current cycles the loop is generating
 	[SerializeField]
-	public int repeatCycle;
-	[SerializeField]
-	public int currentGeneration;
+	private int repeatCycle;
+	private int currentGeneration;
 
 	[SerializeField]
 	private float worldObjectSphereRadius;
@@ -106,15 +105,15 @@ public class WorldGenerationScript : MonoBehaviour {
 						int spawnChance = Random.Range (1, stoneChances + 1);
 
 						if (spawnChance == 1) {
-							GameObject spawn = stones [Random.Range (0, stones.Length)];
+							GameObject newSpawn = stones [Random.Range (0, stones.Length)];
 
-							spawnHere (currentPosition, spawn, worldObjectSphereRadius, false);
+							spawnHere (currentPosition, newSpawn, worldObjectSphereRadius, false);
 
 							yield return new WaitForSeconds (0.01f);
 						}
 						else {
-							GameObject spawn = trees [Random.Range (0, trees.Length)];
-							spawnHere (currentPostion, spawn, worldObjectSphereRadius, false);
+							GameObject newSpawn = trees [Random.Range (0, trees.Length)];
+							spawnHere (currentPosition, newSpawn, worldObjectSphereRadius, false);
 
 							yield return new WaitForSeconds (0.01f);
 						}
@@ -124,5 +123,47 @@ public class WorldGenerationScript : MonoBehaviour {
 				}
 			}
 		}
+		worldGenDone ();
+	}
+
+	void spawnHere (Vector3 newSpawnPos, GameObject objectToSpawn, float radiusOfSphere, bool isObjectTerrrain){
+		if (isObjectTerrrain == true) {
+			Vector3 randPos = new Vector3 (newSpawnPos.x + Random.Range (-terrainRandAmount, terrainRandAmount + 1), 0, newSpawnPos.z +
+			                  Random.Range (-terrainRandAmount, terrainRandAmount + 1));
+			Vector3 rayPos = new Vector3 (randPos.x, 10, randPos.z);
+
+			if (Physics.Raycast (rayPos, -Vector3.up, Mathf.Infinity, groundLayer)) {
+				Collider[] objectsHit = Physics.OverlapSphere (randPos, radiusOfSphere, terrainLayer);
+
+				if (objectsHit.Length == 0) {
+					GameObject terrainObject = (GameObject)Instantiate (objectToSpawn, randPos, Quaternion.identity);
+
+					terrainObject.transform.eulerAngles = new Vector3 (transform.eulerAngles.x, Random.Range (0, 360), transform.eulerAngles.z);
+				}
+			}
+		} 
+		else {
+			Vector3 randPos = new Vector3 (newSpawnPos.x + Random.Range (-worldObjectRandAmount, worldObjectRandAmount + 1), newSpawnPos.y, 
+				                  newSpawnPos.z + Random.Range (-worldObjectRandAmount, worldObjectRandAmount + 1));
+			Vector3 rayPos = new Vector3 (randPos.x, 20, randPos.z);
+			RaycastHit hit;
+
+			if (Physics.Raycast (rayPos, -Vector3.up, out hit, Mathf.Infinity, groundLayer)) {
+				randPos = new Vector3 (randPos.x, hit.point.y, randPos.z);
+
+				Collider[] objectsHit = Physics.OverlapSphere (randPos, radiusOfSphere, worldObjectLayer);
+
+				if (objectsHit.Length == 0) {
+					GameObject worldObject = (GameObject)Instantiate (objectToSpawn, randPos, Quaternion.identity);
+					worldObject.transform.position = new Vector3 (worldObject.transform.position.x, worldObject.transform.position.y +
+						(worldObject.GetComponent<Renderer> ().bounds.extents.y * 0.7f), worldObject.transform.position.z);
+					worldObject.transform.eulerAngles = new Vector3 (transform.eulerAngles.x, Random.Range (0, 360), transform.eulerAngles.z); 
+				}
+			}
+		}
+	}
+
+	void worldGenDone(){
+		print ("World is done generated");
 	}
 }
