@@ -5,10 +5,15 @@ using UnityEngine;
 //camera will now follow player, camera controls are currently disabled
 public class MovePlayer : MonoBehaviour {
 	private bool isGrounded;
+	private int jumpSpeed = 120000;
+
+	public Camera playerCamera;
+	Vector3 cameraOffset;
 
 	void Update () {
 		if (GlobalVariables.currentPlayerHasFiredCannon == false) {
 			if (GlobalVariables.currentPlayerMaxTravelDistance == false) {
+				cameraOffset = playerCamera.transform.position - gameObject.transform.position;
 				//moving the player based on user input
 				if (Input.GetKey ("w")) {
 					//move object in the forward direction thats its facing
@@ -22,10 +27,11 @@ public class MovePlayer : MonoBehaviour {
 					updateFuelConsumption ();
 				}
 
-				if (Input.GetKeyDown ("space")) {
+				if (Input.GetKey("space")) {
+					//need to check to see if the sphere is on the ground, to prevent 'flying'
 					if (isGrounded == true) {
-						//jump!
-						GlobalVariables.currentPlayerTank.transform.Translate (Vector3.up * GlobalVariables.jumpSpeed * Time.deltaTime, Space.World);
+						//GlobalVariables.currentPlayerTank.GetComponent<Rigidbody>().AddForce(Vector3.up * jumpSpeed * Time.deltaTime);
+						isGrounded = false;
 					}
 				} 
 			} 
@@ -36,18 +42,26 @@ public class MovePlayer : MonoBehaviour {
 	
 			if (Input.GetKey ("a")) {
 				//rotate camera left along y axis
-				GlobalVariables.currentPlayerTank.transform.RotateAround (GlobalVariables.currentPlayerTank.transform.position, Vector3.down, 2 * GlobalVariables.moveSpeed * Time.deltaTime);//rotate around self
+				GlobalVariables.currentPlayerTank.transform.RotateAround (GlobalVariables.currentPlayerTank.transform.position, Vector3.up, 2 * GlobalVariables.moveSpeed * Time.deltaTime);//rotate around self
+			
+				playerCamera.transform.RotateAround (gameObject.transform.position, Vector3.up, (-1) * GlobalVariables.moveSpeed * Time.deltaTime);
+				cameraOffset = playerCamera.transform.position - gameObject.transform.position;
 			}
 
 			if (Input.GetKey ("d")) {
 				//move camera right along y axis
 				GlobalVariables.currentPlayerTank.transform.RotateAround (GlobalVariables.currentPlayerTank.transform.position, Vector3.up, 2 * GlobalVariables.moveSpeed * Time.deltaTime);//rotate around self
+			
+				playerCamera.transform.RotateAround (gameObject.transform.position, Vector3.up, GlobalVariables.moveSpeed * Time.deltaTime);
+				cameraOffset = playerCamera.transform.position - gameObject.transform.position;
 			}
 		}
 	}
 		
 	void OnCollisionEnter(Collision collision) {
 		isGrounded = true;//the player has returned to the 'ground'
+		GlobalVariables.currentPlayerTank.GetComponent<Rigidbody>().velocity = Vector3.zero;
+		GlobalVariables.currentPlayerTank.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
 	}
 
 	void OnCollisionExit(Collision collision) {	
