@@ -53,6 +53,13 @@ public class TriggerPlayerOne : MonoBehaviour {
 			GlobalVariables.currentPlayerFuelText.text = GlobalVariables.currentPlayerFuelLevel.ToString();
 		}
 
+		if (collider.tag == "LaserMod") {
+			Debug.Log ("Player 1: Equip with laser");
+			Destroy (collider.gameObject);
+			GlobalVariables.playerOneCurrentAmmoType = "LaserAmmo";
+			GlobalVariables.laserStocks = 200;
+		}
+
 		if (collider.tag == "AmmoMod") {
 			Destroy (collider.gameObject);
 			//Randomly assign the player a "mod"

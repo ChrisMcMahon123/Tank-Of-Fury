@@ -13,14 +13,27 @@ public class FireCannonPlayerOne : MonoBehaviour {
 
 	void Update () {
 		if (GlobalVariables.CurrentPlayerTurn == 1) {
-			if (GlobalVariables.currentPlayerHasFiredCannon == false) {
-				if (Input.GetKey ("f")) {
+			//check to see if is fired and which ammo is player currently equip with
+			if (Input.GetKey ("f")) {
+				if (GlobalVariables.currentPlayerHasFiredCannon == false &&
+				    GlobalVariables.playerOneCurrentAmmoType.CompareTo ("NormalAmmo") == 0) { 
 					//gun has been fired
 					//Debug.Log ("Player 1 FIRE");
 					cannonFireAnimation.Play ();
 					GlobalVariables.fireCannon (cannonFireAnimation.transform.position, transform.up * cannonPowerSlider.value * GlobalVariables.cannonMultiplier * Time.deltaTime);
+				} 
+				else if (GlobalVariables.currentPlayerHasFiredCannon == false &&
+				        GlobalVariables.playerOneCurrentAmmoType.CompareTo ("LaserAmmo") == 0) {
+					GlobalVariables.fireLazer (cannonFireAnimation.transform.position, transform.up * cannonPowerSlider.value * GlobalVariables.cannonMultiplier * Time.deltaTime);
+					GlobalVariables.laserStocks -= 1;
+
 				}
-			} 
+			
+
+			}
+
+
+
 			else {
 				cannonFireAnimation.Stop ();
 			}
