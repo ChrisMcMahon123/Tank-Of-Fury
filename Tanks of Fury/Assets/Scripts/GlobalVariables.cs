@@ -26,6 +26,10 @@ public class GlobalVariables : MonoBehaviour {
 	public static GameObject playerOneMenu;
 	public static TextMesh playerOneFuelLevel;
 
+	//Type of ammo player one is currently using
+	public static string playerOneCurrentAmmoType = "NormalAmmo";
+	public static int laserStocks = 0;
+
 	public static int playerOneSizeAOE = 10;
 	public static int playerOneMaxTravelDistance = 1000;
 
@@ -66,5 +70,31 @@ public class GlobalVariables : MonoBehaviour {
 
 		newBullet.AddComponent<Rigidbody>();
 		newBullet.GetComponent<Rigidbody>().AddForce(forceApplied);
+	}
+
+	public static void fireLazer(Vector3 spawnLocation, Vector3 forceApplied){
+
+		if (laserStocks == 0) {
+			currentPlayerHasFiredCannon = true;
+			SwitchTurns.switchPlayersTurns();
+		}
+
+		currentPlayerMaxTravelDistance = true;
+
+
+		GameObject newBullet = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+		newBullet.GetComponent<Collider> ().isTrigger = true;
+		newBullet.gameObject.tag = "AOEDamage";
+	
+		newBullet.transform.localScale = new Vector3(.5f,.5f,.5f);
+		newBullet.transform.position = spawnLocation;
+
+		newBullet.GetComponent<Renderer> ().material = Resources.Load ("Bullet", typeof(Material)) as Material;
+		newBullet.AddComponent(System.Type.GetType("BulletExplosion"));
+
+		newBullet.AddComponent<Rigidbody>();
+		newBullet.GetComponent<Rigidbody> ().useGravity = false;
+		newBullet.GetComponent<Rigidbody>().AddForce(forceApplied);
+
 	}
 }

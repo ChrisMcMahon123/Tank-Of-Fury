@@ -12,6 +12,7 @@ TagManager:
   - AmmoMod
   - WorldObject
   - Ground
+  - LaserMod
   layers:
   - Default
   - TransparentFX
