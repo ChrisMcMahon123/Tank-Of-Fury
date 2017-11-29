@@ -70,12 +70,17 @@ public class GlobalVariables : MonoBehaviour {
 
 		newBullet.AddComponent<Rigidbody>();
 		newBullet.GetComponent<Rigidbody>().AddForce(forceApplied);
+
+		//SwitchTurns.switchPlayersTurns ();
+
+
 	}
 
 	public static void fireLazer(Vector3 spawnLocation, Vector3 forceApplied){
 
 		if (laserStocks == 0) {
 			currentPlayerHasFiredCannon = true;
+			playerOneCurrentAmmoType = "Normal";
 			SwitchTurns.switchPlayersTurns();
 		}
 
