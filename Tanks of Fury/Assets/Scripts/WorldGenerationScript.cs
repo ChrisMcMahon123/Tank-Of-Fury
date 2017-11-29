@@ -13,7 +13,11 @@ public class WorldGenerationScript : MonoBehaviour {
 	[SerializeField]
 	private GameObject[] terrain;
 
-	public int stoneChances = 1 ;
+	[SerializeField]
+	private GameObject[] powerUp;
+
+
+	public int stoneChances = 2 ;
 
 	[SerializeField]
 	private GameObject blMarker;
@@ -106,6 +110,15 @@ public class WorldGenerationScript : MonoBehaviour {
 						int spawnChance = Random.Range (1, stoneChances + 1);
 
 						if (spawnChance == 1) {
+							GameObject newSpawn = powerUp [Random.Range (0, powerUp.Length)];
+							spawnHere (currentPosition, newSpawn, worldObjectSphereRadius, false);
+
+							yield return new WaitForSeconds (0.1f);
+
+						}
+
+
+						if (spawnChance > 1) {
 							GameObject newSpawn = trees [Random.Range (0, trees.Length)];
 							spawnHere (currentPosition, newSpawn, worldObjectSphereRadius, false);
 
