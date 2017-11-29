@@ -7,13 +7,13 @@ public class WorldGenerationScript : MonoBehaviour {
 	//Array to store terrain objects
 	[SerializeField]
 	private GameObject [] trees;
-	[SerializeField]
-	private GameObject[] stones;
+	//[SerializeField]
+	//private GameObject[] stones;
 
 	[SerializeField]
 	private GameObject[] terrain;
 
-	public int stoneChances = 6;
+	public int stoneChances = 1 ;
 
 	[SerializeField]
 	private GameObject blMarker;
@@ -106,13 +106,6 @@ public class WorldGenerationScript : MonoBehaviour {
 						int spawnChance = Random.Range (1, stoneChances + 1);
 
 						if (spawnChance == 1) {
-							GameObject newSpawn = stones [Random.Range (0, stones.Length)];
-
-							spawnHere (currentPosition, newSpawn, worldObjectSphereRadius, false);
-
-							yield return new WaitForSeconds (0.1f);
-						}
-						else {
 							GameObject newSpawn = trees [Random.Range (0, trees.Length)];
 							spawnHere (currentPosition, newSpawn, worldObjectSphereRadius, false);
 

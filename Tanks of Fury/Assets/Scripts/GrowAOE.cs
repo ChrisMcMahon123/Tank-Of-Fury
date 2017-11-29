@@ -24,7 +24,7 @@ public class GrowAOE : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider collider) {
-		if (collider.tag == "Terrain") {
+		if (collider.tag == "Terrain" || collider.tag == "WorldObject") {
 			//Debug.Log("Destroy Object that this AOE came into contact with");
 			Destroy (collider.gameObject);
 		}
