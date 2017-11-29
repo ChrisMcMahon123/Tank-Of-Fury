@@ -3,27 +3,48 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class MoveSphere : MonoBehaviour {
-	float speed = 25;
+	float speed = 100;
+	public Camera camera;
+	public GameObject tank;
+
+	Vector3 cameraOffset;
+	Vector3 tankOffset;
+
+	void Start () {
+		cameraOffset = camera.transform.position - gameObject.transform.position;
+		tankOffset = tank.transform.position - gameObject.transform.position;
+	}
 
 	void Update () {
-		if (Input.GetKey("w") || (Input.GetKey("up")))
+		camera.transform.position = gameObject.transform.position + cameraOffset;
+		tank.transform.position = gameObject.transform.position + tankOffset;
+
+		if (Input.GetKey("w"))
 		{
-			GetComponent<Rigidbody>().AddForce(Vector3.forward * speed * Time.deltaTime);
+			GetComponent<Rigidbody>().AddForce(camera.transform.forward * speed * Time.deltaTime);
 		}
 
-		if (Input.GetKey("s") || (Input.GetKey("down")))
+		if (Input.GetKey("s"))
 		{
-			GetComponent<Rigidbody>().AddForce(Vector3.back * speed * Time.deltaTime);
+			GetComponent<Rigidbody>().AddForce(camera.transform.forward * (-1) * speed * Time.deltaTime);
 		}
 
-		if (Input.GetKey("a") || (Input.GetKey("left")))
+		if (Input.GetKey("a"))
 		{
-			GetComponent<Rigidbody>().AddForce(Vector3.left * speed * Time.deltaTime);
+			camera.transform.RotateAround (gameObject.transform.position, Vector3.up,(-1) * speed * Time.deltaTime);
+			cameraOffset = camera.transform.position - gameObject.transform.position;
+		
+			tank.transform.RotateAround (gameObject.transform.position, Vector3.up,(-1) * speed * Time.deltaTime);
+			tankOffset = tank.transform.position - gameObject.transform.position;
 		}
 
-		if (Input.GetKey("d") || (Input.GetKey("right")))
+		if (Input.GetKey("d"))
 		{
-			GetComponent<Rigidbody>().AddForce(Vector3.right * speed * Time.deltaTime);
+			camera.transform.RotateAround (gameObject.transform.position, Vector3.up, speed * Time.deltaTime);
+			cameraOffset = camera.transform.position - gameObject.transform.position;
+
+			tank.transform.RotateAround (gameObject.transform.position, Vector3.up, speed * Time.deltaTime);
+			tankOffset = tank.transform.position - gameObject.transform.position;
 		}
 	}
 }

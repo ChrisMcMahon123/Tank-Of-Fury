@@ -56,6 +56,7 @@
      <Compile Include="Assets\Scripts\FireCannonPlayerOne.cs" />
      <Compile Include="Assets\Scripts\FireCannonPlayerTwo.cs" />
      <Compile Include="Assets\Scripts\FollowPlayer.cs" />
+     <Compile Include="Assets\Scripts\FollowSphere.cs" />
      <Compile Include="Assets\Scripts\GenerateTerrain.cs" />
      <Compile Include="Assets\Scripts\GlobalVariables.cs" />
      <Compile Include="Assets\Scripts\GrowAOE.cs" />
