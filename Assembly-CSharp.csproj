@@ -51,16 +51,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\AI\tracking.cs" />
      <Compile Include="Assets\Scripts\BulletExplosion.cs" />
      <Compile Include="Assets\Scripts\ClickExit.cs" />
+     <Compile Include="Assets\Scripts\EndGame.cs" />
      <Compile Include="Assets\Scripts\FireCannonPlayerOne.cs" />
      <Compile Include="Assets\Scripts\FireCannonPlayerTwo.cs" />
      <Compile Include="Assets\Scripts\FollowPlayer.cs" />
      <Compile Include="Assets\Scripts\GenerateTerrain.cs" />
      <Compile Include="Assets\Scripts\GlobalVariables.cs" />
      <Compile Include="Assets\Scripts\GrowAOE.cs" />
-     <Compile Include="Assets\Scripts\MoveCamera.cs" />
      <Compile Include="Assets\Scripts\MovePlayer.cs" />
      <Compile Include="Assets\Scripts\PauseGame.cs" />
      <Compile Include="Assets\Scripts\RotateCannon.cs" />
@@ -69,7 +68,8 @@
      <Compile Include="Assets\Scripts\SwitchTurns.cs" />
      <Compile Include="Assets\Scripts\TriggerPlayerOne.cs" />
      <Compile Include="Assets\Scripts\TriggerPlayerTwo.cs" />
-     <Compile Include="Assets\WorldGenerationScript.cs" />
+     <Compile Include="Assets\Scripts\Upgrade.cs" />
+     <Compile Include="Assets\Scripts\WorldGenerationScript.cs" />
  <Reference Include="Facebook.Unity.Settings">
  <HintPath>/Users/Shared/Unity/Testing/Library/FacebookSDK/Facebook.Unity.Settings.dll</HintPath>
  </Reference>
@@ -88,8 +88,20 @@
  <Reference Include="UnityEngine.Timeline">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Timeline/RuntimeEditor/UnityEngine.Timeline.dll</HintPath>
  </Reference>
+ <Reference Include="UnityEngine.UIAutomation">
+ <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UIAutomation/UnityEngine.UIAutomation.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.GoogleAudioSpatializer">
+ <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityGoogleAudioSpatializer/RuntimeEditor/UnityEngine.GoogleAudioSpatializer.dll</HintPath>
+ </Reference>
  <Reference Include="UnityEngine.HoloLens">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.SpatialTracking">
+ <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
+ </Reference>
+ <Reference Include="Vuforia.UnityExtensions">
+ <HintPath>/Applications/Unity/PlaybackEngines/VuforiaSupport/Managed/Runtime/Vuforia.UnityExtensions.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Analytics">
  <HintPath>/Users/Jose/Library/Unity/cache/packages/packages.unity.com/com.unity.analytics@1.0.1/UnityEngine.Analytics.dll</HintPath>
