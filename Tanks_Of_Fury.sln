@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tanks_Of_Fury", "Assembly-CSharp.csproj", "{2CCB192F-A100-C3C2-BD11-EC2059291DDA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2CCB192F-A100-C3C2-BD11-EC2059291DDA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2CCB192F-A100-C3C2-BD11-EC2059291DDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2CCB192F-A100-C3C2-BD11-EC2059291DDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2CCB192F-A100-C3C2-BD11-EC2059291DDA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Assembly-CSharp.csproj
+	EndGlobalSection
+EndGlobal
